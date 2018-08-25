@@ -3,21 +3,21 @@
 重写了一下初始化selectValue
 ```
 var getCurrValue = function () {
-                var mats = jet.reMatch(that.format), isEmpty = that.getValue() != "",curVal = [],
-                    parmat = that.dlen == 7 ? "hh:mm:ss" : "YYYY-MM"+ (that.dlen <= 2 ? "":"-DD");
-                
-				//修改
-				var result = that.valCell.value;
-				result = result.substr(0,11);
-				var nowTime = [jet.parse(jet.getDateTime({}), parmat)];
-				nowTime = nowTime[0];
-				var time1 = new Date(result).setHours('0');
-				var time2 = new Date(nowTime).setHours('0');
-				var nDays = (parseInt((time1 - time2) / 1000 / 3600 / 24));
-				var redate = {
-					DD: nDays
-				};
-				that.selectValue = [jet.parse(jet.getDateTime(redate), parmat)];
+	var mats = jet.reMatch(that.format), isEmpty = that.getValue() != "",curVal = [],
+	    parmat = that.dlen == 7 ? "hh:mm:ss" : "YYYY-MM"+ (that.dlen <= 2 ? "":"-DD");
+
+	//修改
+	var result = that.valCell.value;
+	result = result.substr(0,11);
+	var nowTime = [jet.parse(jet.getDateTime({}), parmat)];
+	nowTime = nowTime[0];
+	var time1 = new Date(result).setHours('0');
+	var time2 = new Date(nowTime).setHours('0');
+	var nDays = (parseInt((time1 - time2) / 1000 / 3600 / 24));
+	var redate = {
+		DD: nDays
+	};
+	that.selectValue = [jet.parse(jet.getDateTime(redate), parmat)];
 ```
 jeDate.js
 =======
